@@ -1,0 +1,30 @@
+{
+    "name": "cyberrebell/doctrine-entity-form-generator",
+    "description": "generate form from doctrine annotations",
+    "authors": [
+        {
+            "name": "Cyberrebell",
+            "email": "chainsaw75@web.de"
+        }
+    ],
+    "type": "library",
+    "keywords": [
+        "zf2",
+        "zend",
+        "doctrine",
+        "entity",
+        "annotation",
+        "form"
+    ],
+    "license": "GPL-3.0",
+    "require": {
+        "php": ">=5.4.36",
+        "zendframework/zendframework": ">=2.3.0",
+        "cyberrebell/doctrine-entity-reader": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "DoctrineEntityFormGenerator\\": "library/"
+        }
+    }
+}
