@@ -25,11 +25,11 @@ use Zend\Form\Element\MultiCheckbox;
  */
 class FormGenerator
 {
-    const TO_ONE_ELEMENT_SELECT = 0;
-    const TO_ONE_ELEMENT_RADIO = 1;
+    const REF_ONE_ELEMENT_SELECT = 0;
+    const REF_ONE_ELEMENT_RADIO = 1;
     
-    const TO_MANY_ELEMENT_MULTISELECT = 2;
-    const TO_MANY_ELEMENT_MULTICHECK = 3;
+    const REF_MANY_ELEMENT_MULTISELECT = 2;
+    const REF_MANY_ELEMENT_MULTICHECK = 3;
     
     /**
      * @var \Doctrine\Common\Persistence\ObjectManager
@@ -46,8 +46,8 @@ class FormGenerator
     protected $emailProperties = [];
     protected $passwordProperties = [];
     
-    protected $toOneElement = self::TO_ONE_ELEMENT_SELECT;
-    protected $toManyElement = self::TO_MANY_ELEMENT_MULTICHECK;
+    protected $toOneElement = self::REF_ONE_ELEMENT_SELECT;
+    protected $toManyElement = self::REF_MANY_ELEMENT_MULTICHECK;
     
     /**
      * Constructor for FormGenerator
@@ -142,10 +142,10 @@ class FormGenerator
                 case Property::PROPERTY_TYPE_COLUMN:
                     $this->addColumnElementToForm($form, $property);
                     break;
-                case Property::PROPERTY_TYPE_TOONE:
+                case Property::PROPERTY_TYPE_REF_ONE:
                     $this->addSingleSelecterElementToForm($form, $property);
                     break;
-                case Property::PROPERTY_TYPE_TOMANY:
+                case Property::PROPERTY_TYPE_REF_MANY:
                     $this->addMultiSelecterElementToForm($form, $property);
                     break;
                 default:
@@ -222,7 +222,7 @@ class FormGenerator
         \Zend\Form\Form $form,
         \ZF2DoctrineCrudHandler\Reader\Property $property
     ) {
-        if ($this->toOneElement == $this::TO_ONE_ELEMENT_SELECT) {
+        if ($this->toOneElement == $this::REF_ONE_ELEMENT_SELECT) {
             $element = new Select($property->getName());
         } else {
             $element = new Radio($property->getName());
@@ -247,7 +247,7 @@ class FormGenerator
         \Zend\Form\Form $form,
         \ZF2DoctrineCrudHandler\Reader\Property $property
     ) {
-        if ($this->toManyElement == $this::TO_MANY_ELEMENT_MULTISELECT) {
+        if ($this->toManyElement == $this::REF_MANY_ELEMENT_MULTISELECT) {
             $element = new Select($property->getName());
             $element->setAttribute('multiple', true);
         } else {
