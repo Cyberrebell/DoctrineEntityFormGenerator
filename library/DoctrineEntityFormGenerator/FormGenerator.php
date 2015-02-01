@@ -169,8 +169,8 @@ class FormGenerator
      * @return null
      */
     protected function addColumnElementToForm(
-        \Zend\Form\Form $form,
-        \ZF2DoctrineCrudHandler\Reader\Property $property
+        Form $form,
+        Property $property
     ) {
         $annotationType = $property->getAnnotation()->type;
         $label = $property->getName();
@@ -219,8 +219,8 @@ class FormGenerator
      * @return null
      */
     protected function addSingleSelecterElementToForm(
-        \Zend\Form\Form $form,
-        \ZF2DoctrineCrudHandler\Reader\Property $property
+        Form $form,
+        Property $property
     ) {
         if ($this->toOneElement == $this::REF_ONE_ELEMENT_SELECT) {
             $element = new Select($property->getName());
@@ -244,8 +244,8 @@ class FormGenerator
      * @return null
      */
     protected function addMultiSelecterElementToForm(
-        \Zend\Form\Form $form,
-        \ZF2DoctrineCrudHandler\Reader\Property $property
+        Form $form,
+        Property $property
     ) {
         if ($this->toManyElement == $this::REF_MANY_ELEMENT_MULTISELECT) {
             $element = new Select($property->getName());
