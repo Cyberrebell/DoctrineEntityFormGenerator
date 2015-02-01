@@ -17,7 +17,6 @@
         "form"
     ],
     "license": "GPL-3.0",
-	"minimum-stability": "dev",
     "require": {
         "php": ">=5.4.36",
         "zendframework/zend-form": "2.3.*",
