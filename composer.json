@@ -20,7 +20,6 @@
     "require": {
         "php": ">=5.4.36",
         "zendframework/zend-form": "2.3.*",
-        "doctrine/annotations": "*",
         "cyberrebell/doctrine-entity-reader": "dev-master"
     },
     "autoload": {
